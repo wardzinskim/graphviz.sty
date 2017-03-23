@@ -80,13 +80,13 @@
 \def\@@digraph#1#2#3{%
     \ifsinglefile% write the graph to the master file
         \expandafter\def\csname -\endcsname{\string\n}%
-        \immediate\write\masterdotfile{#1 #2 {#3}}%
+        \immediate\write\masterdotfile{\unexpanded{#1 #2 {#3}}}%
         \immediate\write\mastergvprfile{BEG_G { if ($.name == "#2") {writeG($G,"\@tmpdir#2.dot");} }}%
     \else% open a new file handle
         \newwrite\dotfile%
         \immediate\openout\dotfile=\@tmpdir#2.dot%
         \expandafter\def\csname -\endcsname{\string\n}%
-        \immediate\write\dotfile{#1 #2 {#3}}%
+        \immediate\write\dotfile{\unexpanded{#1 #2 {#3}}}%
         \immediate\closeout\dotfile%
     \fi%
     \endgroup}%
