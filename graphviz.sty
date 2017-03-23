@@ -61,6 +61,18 @@
   \inputdigraph[#1]{#2}{neato}%     % Include the generated ps/pdf.
   \@digraph{graph}{#2}%             % Generate the .dot file.
 }
+\newcommand{\twopigraph}[2][scale=1]{
+  \inputdigraph[#1]{#2}{twopi}%     % Include the generated ps/pdf.
+  \@digraph{digraph}{#2}%             % Generate the .dot file.
+}
+\newcommand{\circograph}[2][scale=1]{
+  \inputdigraph[#1]{#2}{circo}%     % Include the generated ps/pdf.
+  \@digraph{digraph}{#2}%             % Generate the .dot file.
+}
+\newcommand{\fdpgraph}[2][scale=1]{
+  \inputdigraph[#1]{#2}{fdp}%     % Include the generated ps/pdf.
+  \@digraph{digraph}{#2}%             % Generate the .dot file.
+}
 \begingroup
   \catcode`\^^M=\active%
   \gdef\@digraph{\begingroup\catcode`\^^M=\active\def^^M{^^J}\@@digraph}%
